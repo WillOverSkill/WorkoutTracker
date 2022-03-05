@@ -2,6 +2,43 @@
 
 import datetime
 
+def create_date(year: int, month: int, day: int):
+    '''
+    Method to create a date object
+
+    Parameters
+    ----------
+    year : int
+    month : int
+    day : int
+
+    Returns
+    -------
+    datetime.date object with given arguments
+
+    Raises
+    ------
+    TypeError
+        If any of the inputs cannot be converted to integers
+    '''
+
+    try:
+        year = int(year)
+    except:
+        raise TypeError("year is not an integer")
+
+    try:
+        month = int(month)
+    except:
+        raise TypeError("month is not an integer")
+    
+    try:
+        day = int(day)
+    except:
+        raise TypeError("day is not an integer")
+
+    return datetime.date(year, month, day)
+
 def create_workout(name: str, sets: int, reps: int, date: datetime.date = datetime.date.today(), num: int = 1):
     '''
     Method to create a workout
@@ -14,10 +51,10 @@ def create_workout(name: str, sets: int, reps: int, date: datetime.date = dateti
         number of sets
     reps : int
         number of reps
-    date : datetime.date
-        date of workout
-    num : int
-        workout session number on single day
+    date : datetime.date, optional
+        date of workout, defaults to today
+    num : int, optional
+        workout session number on single day, defaults to 1
 
     Returns
     -------
